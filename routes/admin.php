@@ -18,3 +18,7 @@ Route::get('/', [App\Http\Controllers\Backend\HomeController::class, 'index'])->
 
 // show analytics
 Route::get('/analytics', [App\Http\Controllers\Backend\AnalyticsController::class, 'index'])->name('analytics');
+
+// category
+Route::get('/category', [App\Http\Controllers\Backend\CategoryController::class, 'index'])->name('category.index');
+

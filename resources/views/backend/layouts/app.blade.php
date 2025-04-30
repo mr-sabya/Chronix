@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
 
-
 <head>
 
     <meta charset="utf-8" />
@@ -12,10 +11,11 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 
-     <!-- Bootstrap Css -->
+    <!-- Bootstrap Css -->
     <link href="{{ asset('assets/backend/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
     <link href="{{ asset('assets/backend/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+
     <!-- App Css-->
     <link href="{{ asset('assets/backend/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/backend/css/custom.css') }}" id="app-style" rel="stylesheet" type="text/css" />
@@ -46,6 +46,32 @@
         <div class="main-content">
 
             <div class="page-content">
+
+                <!-- start page title -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                <h4 class="mb-sm-0">Dashboard</h4>
+
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        @if(Route::is('admin.dashboard'))
+                                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                                        @else
+                                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}" wire:navigate>Dashboard</a></li>
+                                        @endif
+                                        <li class="breadcrumb-item active">@yield('title')</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+
                 @yield('content')
 
             </div>
@@ -55,9 +81,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-6">
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script> © Appzia.
+                            © Appzia.
                         </div>
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">
@@ -84,16 +108,17 @@
 
 
     <!-- toastr plugin -->
-    <script data-navigate-once src="{{ asset('assets/libs/toastr/build/toastr.min.js') }}"></script>
+    <script data-navigate-once src="{{ asset('assets/backend/libs/toastr/build/toastr.min.js') }}"></script>
 
     <!-- App js -->
     <script src="{{ asset('assets/backend/js/app.js') }}"></script>
 
-    @livewireScripts
 
     @yield('scripts')
 
+    @livewireScripts
     <script>
+        
         document.addEventListener('livewire:init', () => {
             Livewire.on('alert', (event) => {
                 // Since the event is an array, access the first item

@@ -18,6 +18,18 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->string('profile_picture')->nullable();
+            $table->string('bio')->nullable();
+
+            // admin
+            $table->boolean('is_admin')->default(false);
+
+            // status
+            $table->boolean('is_active')->default(true);
+            $table->boolean('is_verified')->default(false);
+            $table->boolean('is_banned')->default(false);
+            $table->boolean('is_suspended')->default(false);
+
             $table->timestamps();
         });
     }

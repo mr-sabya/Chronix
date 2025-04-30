@@ -1,5 +1,7 @@
 @extends('backend.layouts.app')
 
+@section('title', $title)
+
 @section('content')
 <div class="container-fluid">
     <div class="row">

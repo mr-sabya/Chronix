@@ -18,11 +18,11 @@
                 <livewire:backend.theme.menu-item
                     :url="''"
                     :icon="'ri-layout-3-line'"
-                    :label="'Home Page'"
+                    :label="'News'"
                     :hasSubMenu="true"
                     :subMenuItems="
                     [
-                        ['url' => 'admin.analytics', 'label' => 'Banner'],
+                        ['url' => 'admin.category.index', 'label' => 'Category'],
                         ['url' => 'admin.analytics', 'label' => 'Image Banner'],
                     ]" />
 

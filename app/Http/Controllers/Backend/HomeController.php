@@ -10,6 +10,7 @@ class HomeController extends Controller
     //show dashboard
     public function index()
     {
-        return view('backend.home.index');
+        $title = "Dashboard";
+        return view('backend.home.index', compact('title'));
     }
 }
