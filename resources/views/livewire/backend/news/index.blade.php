@@ -1,7 +1,8 @@
 <div class="card">
 
-    <div class="card-header bg-white">
+    <div class="card-header bg-white d-flex justify-content-between align-items-center">
         <h5 class="m-0">All News</h5>
+        <a href="#" class="btn btn-primary btn-sm"><i class="ri-add-line"></i> Add News</a>
     </div>
 
     <div class="card-body">
@@ -18,7 +19,7 @@
             </div>
 
             <div class="mb-3 w-25">
-                <input type="text" wire:model.debounce.300ms="search" class="form-control" placeholder="Search News...">
+                <input type="text" wire:model.live="search" class="form-control" placeholder="Search News...">
             </div>
         </div>
 
@@ -26,9 +27,21 @@
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th wire:click="sortBy('id')" style="cursor: pointer;">ID @if($sortField === 'id') <small>({{ $sortDirection }})</small> @endif</th>
-                        <th>Image</th>
-                        <th wire:click="sortBy('title')" style="cursor: pointer;">Title @if($sortField === 'title') <small>({{ $sortDirection }})</small> @endif</th>
+                        <th class="text-center" style="width: 50px;">
+                            <a href="#" wire:click.prevent="toggleSort('id')">ID
+                                @if ($sortBy === 'id')
+                                <i class="fas fa-sort-{{ $sortDirection === 'asc' ? 'up' : 'down' }}"></i>
+                                @endif
+                            </a>
+                        </th>
+                        <th class="text-center" style="width: 100px;">Image</th>
+                        <th>
+                            <a href="#" wire:click.prevent="toggleSort('title')">Name
+                                @if ($sortBy === 'title')
+                                <i class="fas fa-sort-{{ $sortDirection === 'asc' ? 'up' : 'down' }}"></i>
+                                @endif
+                            </a>
+                        </th>
                         <th>Category</th>
                         <th>User</th>
                         <th>Status</th>
@@ -40,8 +53,8 @@
                 <tbody>
                     @forelse($newsList as $news)
                     <tr>
-                        <td>{{ $newsList->firstItem() + $loop->index }}</td>
-                        <td><img src="{{ url('storage/' . $news->image) }}" alt="" style="width: 80px;"></td>
+                        <td class="text-center">{{ $newsList->firstItem() + $loop->index }}</td>
+                        <td class="text-center"><img src="{{ url('storage/' . $news->image) }}" alt="" style="width: 80px;"></td>
                         <td>{{ $news->title }}</td>
                         <td>{{ $news->category?->name ?? '-' }}</td>
                         <td>{{ $news->user?->name ?? '-' }}</td>

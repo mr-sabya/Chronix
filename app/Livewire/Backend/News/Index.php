@@ -12,7 +12,7 @@ class Index extends Component
     use WithPagination, WithoutUrlPagination;
 
     public $search = '';
-    public $sortField = 'id';
+    public $sortBy = 'id';
     public $sortDirection = 'desc';
     public $perPage = 10;
     public $deleteNewsId = null;
@@ -22,12 +22,12 @@ class Index extends Component
         $this->resetPage();
     }
 
-    public function sortBy($field)
+    public function toggleSort($field)
     {
-        if ($this->sortField === $field) {
+        if ($this->sortBy === $field) {
             $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
         } else {
-            $this->sortField = $field;
+            $this->sortBy = $field;
             $this->sortDirection = 'asc';
         }
     }
@@ -41,7 +41,7 @@ class Index extends Component
     {
         $news = News::with('user', 'category')
             ->where('title', 'like', '%' . $this->search . '%')
-            ->orderBy($this->sortField, $this->sortDirection)
+            ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate($this->perPage);
 
         return view('livewire.backend.news.index', [

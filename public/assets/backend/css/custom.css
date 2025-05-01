@@ -159,3 +159,14 @@ ul {
     height: 100%;
     object-fit: contain;
 }
+
+
+/* table-dark */
+.table .table-dark tr th{
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+.table tbody tr td{
+    vertical-align: middle !important;
+}
