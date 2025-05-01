@@ -24,7 +24,7 @@
     <div class="col-sm-12">
         <ul class="list-unstyled">
             <li class="me-1">Don't have an account?
-                <a class="text-primary" href="sign-up.html">Signup</a>
+                <a class="text-primary" href="{{ route('register') }}" wire:navigate>Signup</a>
             </li>
         </ul>
     </div>
