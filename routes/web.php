@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// login
+Route::get('/login', [App\Http\Controllers\Frontend\Auth\LoginController::class, 'showLoginForm'])->name('login');
+
+
 // show home page
 Route::get('/', [App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home.index');
 

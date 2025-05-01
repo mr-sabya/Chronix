@@ -27,7 +27,7 @@
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th class="text-center" style="width: 50px;">
+                        <th class="text-center" style="width: 60px;">
                             <a href="#" wire:click.prevent="toggleSort('id')">ID
                                 @if ($sortBy === 'id')
                                 <i class="fas fa-sort-{{ $sortDirection === 'asc' ? 'up' : 'down' }}"></i>
@@ -72,7 +72,7 @@
                         </td>
                         <td>{{ $news->published_at?->format('Y-m-d') ?? '-' }}</td>
                         <td>
-                            <a href="#" class="btn btn-sm btn-primary"><i class="ri-edit-line"></i></a>
+                            <a href="{{ route('admin.news.edit', $news->id) }}" wire:navigate class="btn btn-sm btn-primary"><i class="ri-edit-line"></i></a>
                             <button wire:click="delete({{ $news->id }})" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="ri-delete-bin-line"></i></button>
                         </td>
                     </tr>

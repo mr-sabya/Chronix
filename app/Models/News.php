@@ -63,4 +63,10 @@ class News extends Model
     {
         return $query->where('is_trending', true);
     }
+
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }

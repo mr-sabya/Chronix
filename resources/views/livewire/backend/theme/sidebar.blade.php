@@ -24,6 +24,18 @@
                     [
                         ['url' => 'admin.category.index', 'label' => 'Category'],
                         ['url' => 'admin.news.index', 'label' => 'All News'],
+                        ['url' => 'admin.tag.index', 'label' => 'Tags'],
+                    ]" />
+
+                <livewire:backend.theme.menu-item
+                    :url="''"
+                    :icon="'ri-layout-3-line'"
+                    :label="'Pages'"
+                    :hasSubMenu="true"
+                    :subMenuItems="
+                    [
+                        ['url' => 'admin.page.index', 'label' => 'Pages'],
+                        ['url' => 'admin.page.create', 'label' => 'All Page'],
                     ]" />
 
                 <li>

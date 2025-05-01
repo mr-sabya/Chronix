@@ -16,6 +16,15 @@
     <!-- Icons Css -->
     <link href="{{ asset('assets/backend/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
 
+    <!-- Include snow Theme -->
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+
+    <!-- toastr -->
+    <link rel="stylesheet" href="{{ asset('assets/backend/libs/toastr/build/toastr.min.css') }}">
+
+    <!-- seelct2 -->
+    <link rel="stylesheet" href="{{ asset('assets/backend/libs/select2/css/select2.min.css') }}">
+
     <!-- App Css-->
     <link href="{{ asset('assets/backend/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/backend/css/custom.css') }}" id="app-style" rel="stylesheet" type="text/css" />
@@ -106,19 +115,23 @@
     <script data-navigate-once src="{{ asset('assets/backend/libs/simplebar/simplebar.min.js') }}"></script>
     <script data-navigate-once src="{{ asset('assets/backend/libs/node-waves/waves.min.js') }}"></script>
 
+    <!-- Include the Quill library -->
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
 
     <!-- toastr plugin -->
     <script data-navigate-once src="{{ asset('assets/backend/libs/toastr/build/toastr.min.js') }}"></script>
+
+    <!-- seelct2 -->
+    <script data-navigate-once src="{{ asset('assets/backend/libs/select2/js/select2.min.js') }}"></script>
 
     <!-- App js -->
     <script src="{{ asset('assets/backend/js/app.js') }}"></script>
 
 
-    @yield('scripts')
+    @stack('scripts')
 
     @livewireScripts
     <script>
-        
         document.addEventListener('livewire:init', () => {
             Livewire.on('alert', (event) => {
                 // Since the event is an array, access the first item
