@@ -58,7 +58,7 @@
             </div>
         </div>
 
-        {{-- Table Section --}}
+        <!-- Table Section -->
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header bg-white">
@@ -130,7 +130,7 @@
                             @endforeach
                             @empty
                             <tr>
-                                <td colspan="4" class="text-center">No Category Found</td>
+                                <td colspan="6" class="text-center">No Category Found</td>
                             </tr>
                             @endforelse
                         </tbody>
@@ -142,6 +142,8 @@
         </div>
 
     </div>
+
+
     <!-- Modal for Deleting Category -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true" wire:ignore.self>
         <div class="modal-dialog">
