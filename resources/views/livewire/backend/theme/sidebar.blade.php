@@ -23,7 +23,7 @@
                     :subMenuItems="
                     [
                         ['url' => 'admin.category.index', 'label' => 'Category'],
-                        ['url' => 'admin.analytics', 'label' => 'Image Banner'],
+                        ['url' => 'admin.news.index', 'label' => 'All News'],
                     ]" />
 
                 <li>

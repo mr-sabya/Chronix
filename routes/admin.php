@@ -22,3 +22,6 @@ Route::get('/analytics', [App\Http\Controllers\Backend\AnalyticsController::clas
 // category
 Route::get('/category', [App\Http\Controllers\Backend\CategoryController::class, 'index'])->name('category.index');
 
+// news
+Route::get('/news', [App\Http\Controllers\Backend\NewsController::class, 'index'])->name('news.index');
+
