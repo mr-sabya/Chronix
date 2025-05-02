@@ -54,7 +54,7 @@
     </div>
 
     @php
-    $theme = 5;
+    $theme = 6;
     @endphp
 
     <!-- Header -->
@@ -67,7 +67,9 @@
     @elseif($theme == 4)
     <livewire:frontend.header.header-four.header />
     @elseif($theme == 5)
-    <livewire:frontend.header.header-one.header />
+    <livewire:frontend.header.header-five.header />
+    @elseif($theme == 6)
+    <livewire:frontend.header.header-six.header />
     @endif
     <!--  Header -->
 

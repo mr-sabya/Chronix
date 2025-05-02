@@ -22,6 +22,10 @@
 <!-- home three -->
 <livewire:frontend.home.home-five.index />
 <!-- home three -->
+@elseif($theme == 6)
+<!-- home three -->
+<livewire:frontend.home.home-six.index />
+<!-- home three -->
 @endif
 
 

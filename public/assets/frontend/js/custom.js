@@ -387,7 +387,6 @@ $document.ready(function () {
   POTENZA.searchbox(),
   POTENZA.BannerStyle(),
   POTENZA.ShowTime(),
-  POTENZA.loader(),
   POTENZA.mediaPopups(),
   POTENZA.BackToTop();
 });

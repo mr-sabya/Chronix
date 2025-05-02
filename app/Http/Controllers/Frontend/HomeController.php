@@ -10,7 +10,7 @@ class HomeController extends Controller
     // show the home page
     public function index()
     {
-        $theme = 5;
+        $theme = 6;
         return view('frontend.home.index', compact('theme'));
     }
 }
