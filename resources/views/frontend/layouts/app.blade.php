@@ -53,28 +53,37 @@
 
     </div>
 
-    <!--=================================
-  Header -->
-    <livewire:frontend.theme.header />
-    <!--=================================
-  Header -->
+    @php
+    $theme = 5;
+    @endphp
 
-    <!--================================= side-menu -->
+    <!-- Header -->
+    @if($theme == 1)
+    <livewire:frontend.header.header-one.header />
+    @elseif($theme == 2)
+    <livewire:frontend.header.header-two.header />
+    @elseif($theme == 3)
+    <livewire:frontend.header.header-three.header />
+    @elseif($theme == 4)
+    <livewire:frontend.header.header-four.header />
+    @elseif($theme == 5)
+    <livewire:frontend.header.header-one.header />
+    @endif
+    <!--  Header -->
+
+    <!-- side-menu -->
     <livewire:frontend.theme.side-menu />
-    <!--=================================
-  side-menu -->
+    <!-- side-menu -->
 
-    <!--=================================
-  Search -->
+    <!-- Search -->
     <livewire:frontend.theme.search />
-    <!--=================================
-  Search -->
+    <!-- Search -->
 
     @yield('content')
 
     <!--=================================
   Footer -->
-    <livewire:frontend.theme.footer />
+    <livewire:frontend.footer.footer-one.index />
     <!--=================================
     Footer -->
 
