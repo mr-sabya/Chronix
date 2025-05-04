@@ -50,7 +50,6 @@
             <span class="loader-inner"></span>
         </div>
 
-
     </div>
 
     @php

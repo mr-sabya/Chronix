@@ -21,15 +21,30 @@
 
     <!-- Template Style -->
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}" />
+
+    @livewireStyles
 </head>
 
 <body class="bg-light">
-    <!--=================================
-    Loader -->
-    <div id="overlayer"></div>
-    <span class="loader">
-        <span class="loader-inner"></span>
-    </span>
+    <!-- Loader -->
+    <div x-data="{ loading: false, shown: false }"
+        x-init="
+        Livewire.hook('message.sent', () => {
+            if (!shown) {
+                loading = true;
+                shown = true;
+            }
+        });
+        Livewire.hook('message.processed', () => loading = false);
+     ">
+
+        <div id="overlayer" x-show="loading"></div>
+        <div x-show="loading"
+            class="loader">
+            <span class="loader-inner"></span>
+        </div>
+
+    </div>
 
     <!--=================================
     Sign In -->
@@ -39,9 +54,19 @@
                 <div class="col-lg-6 col-xl-6 col-xxl-7">
                     <div class="sign-in-bg"></div>
                 </div>
-
-                @yield('content')
-
+                <div class="col-lg-6 col-xl-6 col-xxl-5">
+                    <div class="sign-in-box text-center">
+                        <a class="navbar-brand mb-4 d-block" href="{{ route('home') }}">
+                            <img class="img-fluid" src="{{ url('assets/frontend/images/logo-dark.png') }}" alt="">
+                        </a>
+                        <div class="login-social-media">
+                            <a class="btn google mb-3" href="#"><i class="fa-brands fa-google me-3"></i>Google</a>
+                            <a class="btn twitter mb-3" href="#"><i class="fa-brands fa-twitter me-3"></i>Twitter</a>
+                            <a class="btn Facebook mb-3" href="#"><i class="fa-brands fa-facebook-f me-3"></i>Facebook</a>
+                        </div>
+                        @yield('content')
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -58,6 +83,8 @@
     <script src="{{ asset('assets/frontend/js/bootstrap/bootstrap.min.js') }}"></script>
     <!-- Template Scripts (Do not remove)-->
     <script src="{{ asset('assets/frontend/js/custom.js') }}"></script>
+
+    @livewireScripts
 </body>
 
 
